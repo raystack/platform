@@ -7,3 +7,4 @@ This repository contains
 - ODPF's [roadmap and milestones](https://github.com/odpf/platform/milestones)
 - A place to raise [issues](https://github.com/odpf/platform/issues)
 - Have [discussions](https://github.com/odpf/platform/discussions), ask questions and more
+- Join us on [Slack](https://bit.ly/2RzPbtn)
