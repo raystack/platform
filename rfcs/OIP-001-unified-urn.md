@@ -2,7 +2,7 @@
 
 URN or Uniform Resource Name is what we are using across most of ODPF tools and libraries. URN should not be ambiguous and only represents a single resource. That is why having a good URN format is crucial as it will prevent conflict or duplication of identifiers.
 
-The goal of this RFC is to decide what is a good and persistant URN format that can be used across our tools.
+The goal of this RFC is to decide what is a good and persistent URN format that can be used across our tools.
 
 ## Background
 
@@ -10,14 +10,13 @@ The goal of this RFC is to decide what is a good and persistant URN format that 
 
 To understand the needs of this initiation better, let's take a look at how each of our tools generate their URN format.
 
-| Resource          | Format                                       | Example                                            |
-| :------           | :----                                        | :-----                                             |
-| Meteor's RDBMS    | `{service}::{host}/{database}/{table}`       | `postgres::10.283.86.19:5432/user_db/user_role`    |
-| Meteor's BigQuery | `{service}::{project}/{dataset}/{table}`     | `bigquery::odpf-prod/datamart/daily_booking`       |
-| Meteor's Metabase | `{service}::{host}/dashboards/{dashboardID}` | `metabase::my-metabase-server.com/dashboards/872`  |
-| Guardian | test | - |
-| Shield | test | - |
-||||
+| Resource            | Format                                       | Example                                            |
+| :------             | :----                                        | :-----                                             |
+| Meteor's RDBMS      | `{service}::{host}/{database}/{table}`       | `postgres::10.283.86.19:5432/user_db/user_role`    |
+| Meteor's BigQuery   | `{service}::{project}/{dataset}/{table}`     | `bigquery::odpf-prod/datamart/daily_booking`       |
+| Meteor's Metabase   | `{service}::{host}/dashboards/{dashboardID}` | `metabase::my-metabase-server.com/dashboards/872`  |
+| Shield's Resource   | `{resource_type}/{namespace}/{resource_id}`  | `r/namespace-id/resource-name`                     |
+| Guardian's BigQuery | `{resource_id}`                              | `metabase:293`                                     |
 
 There are few things that we can improve here:
 
@@ -32,19 +31,17 @@ Instead of each tools defining their own URN formats, it will be better, if poss
 
 Since different tools are using different format, this would prevent resource referencing (or potentially sharing?) between tools without helps from an extra mapping layer (either by service or library).
 
-
 ## Requirements
 
 Our final unified URN should handle these cases:
 1. Persist through change of resource location. (e.g. DB is moved to another server)
 2. Can easily be used on URL without relying on services to handle the encoding/decoding.
-3. 
+3. Should be globally unique, or at least within an organization (AKAB / DKAB).
+4. SAMPLE CASE: If we somehow have two different Metabases, we should be able to differentiate which metabase it is from URN without relying on `host`.
 
 And these are cases that are great to have:
 1. -
 
 ## Proposal
 
-### 1. Using namespace
-
-TBA
+**TBA**
