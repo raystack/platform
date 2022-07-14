@@ -1,6 +1,6 @@
 # Unifying URN format across tools
 
-URN or Uniform Resource Name is what we are using across most of ODPF tools and libraries. URN should not be ambiguous and only represents a single resource. That is why having a good URN format is crucial as it will prevent conflict or duplication of identifiers.
+URN or Uniform Resource Name is what we are using across our tools and libraries in ODPF. URN should not be ambiguous and only represent a single resource. That is why having a good URN format is crucial as it will prevent conflict or duplication of identifiers.
 
 The goal of this RFC is to decide what is a good and persistent URN format that can be used across our tools.
 
@@ -20,7 +20,7 @@ To understand the needs of this initiation better, let's take a look at how each
 
 There are few things that we can improve here:
 
-- Using `{host}` as part of the URN will damage persistency (mostly on meteor's). Resource location should be allowed to change without causing its generated URN to be invalid. The reason behind using `{host}` as URN component is for removing ambiguity on URN.
+- Using `{host}` as part of the URN will damage persistency (mostly on meteor's). Resource location should be allowed to change without causing its generated URN to be invalid.
 - Using `/` as a separator has a few issues:
     1. When passing a resource URN as route parameter via `http` protocol, this URN will need to be encoded.
     2. Even if it is encoded, some **services** or **proxies** may not be able to `route-match` properly. (e.g [gorillamux](https://github.com/gorilla/mux/issues/639) default behaviour)
