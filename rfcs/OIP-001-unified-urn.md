@@ -78,4 +78,4 @@ Examples
 - **bigquery** - `odpf:default:bigquery:myproject:mydataset:mytable` - default is used for an urn that does not require label for uniqueness
 - **postgres** - `odpf:stencil-integration:postgres:descriptors` - this is to represents a postgres table that is used by stencil integration
 - **elasticsearch** - `odpf-prod:compass:elasticsearch:index:table` - this is to represents an elasticsearch index that is used by compass in production
-- **mysql** - `odpf:datalake:hadoop:index:table` - this is to represents a mysql server that is being used as a datalake
+- **hadoop** - `odpf:datalake:hadoop:index:table` - this is to represents a hadoop table that is being used as a datalake
