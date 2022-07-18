@@ -6,6 +6,15 @@ The goal of this RFC is to decide what is a good and persistent URN format that 
 
 ## Background
 
+### What is a resource?
+
+Below are list of things that we consider as a resource:
+
+- Table (BigQuery, Postgres, MySQL, Elasticsearch, etc)
+- Topic (Kafka, RabbitMQ, etc)
+- Job (Firehose, Optimus, Dagger, etc)
+- Dashboard (Metabase, Tableau, etc)
+
 ### Current formats
 
 To understand the needs of this initiation better, let's take a look at how each of our tools generate their URN format.
@@ -39,10 +48,7 @@ Our final unified URN should handle these cases:
 3. Should be globally unique, or at least within an organization (AKAB / DKAB).
 4. SAMPLE CASE: If we somehow have two different Metabases, we should be able to differentiate which metabase it is from URN without relying on `host`.
 
-And these are cases that are great to have:
-1. -
-
-## Proposal
+## Proposals
 
 **1.** `urn:{NID}:{NSS}:{project}:{kind}:{name}` - by [spy16](https://github.com/spy16)
 
@@ -79,3 +85,24 @@ Examples
 - **postgres** - `odpf:stencil-integration:postgres:descriptors` - this is to represents a postgres table that is used by stencil integration
 - **elasticsearch** - `odpf-prod:compass:elasticsearch:index:table` - this is to represents an elasticsearch index that is used by compass in production
 - **hadoop** - `odpf:datalake:hadoop:index:table` - this is to represents a hadoop table that is being used as a datalake
+
+## Accepted Proposal
+
+### URN for internal services
+
+Format: `orn:{NSS}:{scope}:{kind}:{name}`
+Example: `orn:entropy:foo:firehose:f1`
+
+*Note: `orn` stands for `ODPF Resource Name`.*
+
+### URN for external services
+
+Format: `urn:{source}:{scope}:{kind}:{identifier}`
+
+Examples:
+
+- **metabase** - `urn:metabase:main-metabase:collection:321`
+- **bigquery** - `urn:bigquery:p-godata-id:table:p-godata-id:mydataset.mytable`
+- **postgres** - `urn:postgres:stencil-integration:table:schemas`
+- **elasticsearch** - `urn:elasticsearch:compass-prod:index:random-index-name`
+- **hadoop** - `urn:hadoop:datalake:table:raw-table`
