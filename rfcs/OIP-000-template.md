@@ -60,9 +60,9 @@ Further heading styles can be used for nested sections, however it is rare that 
 
 When making lists, it is common to bold the first phrase/sentence/word to bring some category or point to attention. For example, a list of API considerations:
 
-Format should be widgets
-Protocol should be widgets-rpc
-Backwards compatibility should be considered.
+- **Format** should be widgets
+- **Protocol** should be widgets-rpc
+- **Backwards** compatibility should be considered.
 
 ### Typeface
 
