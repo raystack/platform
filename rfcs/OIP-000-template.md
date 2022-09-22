@@ -1,4 +1,4 @@
-# RFC Template
+# OIP-000 - RFC Template
 
 The RFC begins with a brief overview. This section should be one or two paragraphs that just explains what the goal of this RFC is going to be, but without diving too deeply into the "why", "why now", "how", etc. Ensure anyone opening the document will form a clear understanding of the RFCs intent from reading this paragraph(s).
 
